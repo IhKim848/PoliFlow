@@ -1,6 +1,7 @@
 import os
 import json
 from google import genai
+from google.genai import types
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 
@@ -36,10 +37,10 @@ class ProfileExtractorAgent:
             response = self.client.models.generate_content(
                 model = self.model_id,
                 contents = full_prompt,
-                config = {
-                    "response_mine_type" : "application\json",
-                    "response_schema" : UserProfile,
-                }
+                config = types.GenerateContentConfig(
+                    response_mime_type = "application/json",
+                    response_schema = UserProfile,
+                )
             )
             return json.loads(response.text)
         except json.JSONDecodeError:
