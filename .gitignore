@@ -20,6 +20,7 @@ env/
 data/*
 !data/.gitkeep
 
+# front-end
 .streamlit/
 
 .DS_Store
