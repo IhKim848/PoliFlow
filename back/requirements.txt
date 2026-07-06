@@ -1,0 +1,13 @@
+# API frame Work
+fastapi >= 0.100.0
+uvicorn >= 0.23.0
+
+# AI
+google-genai
+pydantic >= 2.0.0
+
+# Data Collection
+requests>=2.31.0
+
+# security & env.
+python-dotenv>=1.0.0
