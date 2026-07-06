@@ -15,6 +15,9 @@ class UserProfile(BaseModel):
     martial_status: str | None = Field(description="'미혼' 또는 '기혼'")
     annual_income: int | None = Field(description="연소득")
     homeless_year: int | None = Field(description="무주택 기간")
+    has_house_in_family: bool | None = Field(description="본인 포함 세대원 중 유주택자의 여부 (true/false)")
+    subscription_years: int | None = Field(description="청약통장 가입 기간 (단위: 년)")
+    dependents_count: int | None = Field(description="본인을 제외한 부양가족 수 (배우자, 부모, 자녀 등)")
 
 class ProfileExtractorAgent:
     def __init__(self):
