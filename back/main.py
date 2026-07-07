@@ -2,6 +2,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from src.ai.agent import ProfileExtractorAgent
+from dotenv import load_dotenv
+
+# .env 로드
+load_dotenv()
 
 app = FastAPI(
     title = "금융 정책 통합 계산기 API",
@@ -22,6 +26,8 @@ app.add_middleware(
 class ProfileRequest(BaseModel):
     user_input: str
 
+agent = ProfileExtractorAgent()
+
 @app.get("/")
 def read_root():
     """서버 health check"""
@@ -30,20 +36,17 @@ def read_root():
 @app.post("/api/extract-profile")
 def extract_profile(request: ProfileRequest):
     try:
-        mock_response = {
-            "age": 30,
-            "location": "서울",
-            "marital_status": "기혼",
-            "annual_income": 5000,
-            "homeless_years": 3,
-            "has_house_in_family": False,
-            "subscription_years": 5,
-            "dependents_count": 2
-        }
+        profile_data = agent.extract_profile(request.user_input)
+
+        if not profile_data:
+            raise HTTPException(
+                status_code=400,
+                detail = "분석 실패! 상황을 더 자세히 적어주세요."
+            )
         return {
             "status" : "success",
-            "message" : f"React에서 보낸 문장: {request.user_input}",
-            "data": mock_response
+            "message" : "AI가 성공적으로 프로필을 추출함",
+            "data": profile_data
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail= f"오류 발생! : {str(e)}")
