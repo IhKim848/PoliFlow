@@ -4,6 +4,9 @@ from pydantic import BaseModel
 from src.ai.agent import ProfileExtractorAgent
 from dotenv import load_dotenv
 
+from src.ai.agent import ProfileExtractorAgent
+from src.module.cy import CheongyakPolicy
+
 # .env 로드
 load_dotenv()
 
@@ -27,6 +30,7 @@ class ProfileRequest(BaseModel):
     user_input: str
 
 agent = ProfileExtractorAgent()
+cy_calculate = CheongyakPolicy()
 
 @app.get("/")
 def read_root():
@@ -41,12 +45,19 @@ def extract_profile(request: ProfileRequest):
         if not profile_data:
             raise HTTPException(
                 status_code=400,
-                detail = "분석 실패! 상황을 더 자세히 적어주세요."
+                detail = "분석에 실패하였습니다. 상황을 더 자세히 적어주세요."
             )
+        eligibility_result = cy_calculate.valid_eligibility(profile_data)
+        score_result = cy_calculate.calculate(profile_data)
+
         return {
             "status" : "success",
-            "message" : "AI가 성공적으로 프로필을 추출함",
-            "data": profile_data
+            "message" : "AI가 성공적으로 프로필을 추출하여 계산을 완료하였습니다.",
+            "data": {
+                "profile" : profile_data,
+                "eligibilty" : eligibility_result,
+                "score" : score_result
+            }
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail= f"오류 발생! : {str(e)}")

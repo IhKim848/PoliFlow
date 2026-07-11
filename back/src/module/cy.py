@@ -1,7 +1,7 @@
 import os
 import json
 from typing import Dict, Any
-from core.policy_base import basePolicy
+from src.core.policy_base import basePolicy
 
 class CheongyakPolicy(basePolicy):
     def __init__(self):
@@ -17,7 +17,7 @@ class CheongyakPolicy(basePolicy):
         super().__init__(policy_rule=rules)
 
     def _calculate_linear_score(self, category_key: str, unit: int)->int:
-        rule = self.rules["categories"][category_key]
+        rule = self.rules[category_key]
         unit_count = max(0, min(unit, rule["max_unit_limit"]))
         calculated_score = rule["base_score"] + (unit_count * rule["score_per_unit"])
         return min(calculated_score, rule["max_score"])
