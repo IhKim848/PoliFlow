@@ -13,6 +13,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --tracking-tight: -0.025em;
+    --leading-tight: 1.25;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -33,6 +34,7 @@
     --text-heading-lg: 94px;
     --leading-heading-lg: 0.76;
     --text-display: 225px;
+    --leading-display: 1.25;
     --spacing-12: 12px;
     --spacing-28: 28px;
     --spacing-40: 40px;
@@ -213,6 +215,12 @@
   .z-20 {
     z-index: 20;
   }
+  .mb-\[100px\] {
+    margin-bottom: 100px;
+  }
+  .mb-\[120px\] {
+    margin-bottom: 120px;
+  }
   .mb-\[var\(--spacing-12\)\] {
     margin-bottom: var(--spacing-12);
   }
@@ -301,6 +309,9 @@
   .text-center {
     text-align: center;
   }
+  .text-\[40px\] {
+    font-size: 40px;
+  }
   .leading-\[var\(--leading-body\)\] {
     --tw-leading: var(--leading-body);
     line-height: var(--leading-body);
@@ -312,6 +323,10 @@
   .leading-\[var\(--leading-heading-lg\)\] {
     --tw-leading: var(--leading-heading-lg);
     line-height: var(--leading-heading-lg);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
   }
   .font-\[var\(--font-roobert\)\] {
     --tw-font-weight: var(--font-roobert);
@@ -349,6 +364,9 @@
   }
   .text-\[var\(--text-heading\)\] {
     color: var(--text-heading);
+  }
+  .text-\[var\(--text-heading-lg\)\] {
+    color: var(--text-heading-lg);
   }
   .text-\[var\(--text-heading-sm\)\] {
     color: var(--text-heading-sm);
@@ -411,6 +429,22 @@
       left: var(--spacing-40);
     }
   }
+  .md\:text-\[50px\] {
+    @media (width >= 48rem) {
+      font-size: 50px;
+    }
+  }
+  .md\:text-\[70px\] {
+    @media (width >= 48rem) {
+      font-size: 70px;
+    }
+  }
+  .md\:leading-\[var\(--leading-display\)\] {
+    @media (width >= 48rem) {
+      --tw-leading: var(--leading-display);
+      line-height: var(--leading-display);
+    }
+  }
   .md\:text-\[var\(--text-display\)\] {
     @media (width >= 48rem) {
       color: var(--text-display);
@@ -429,6 +463,26 @@
   .md\:text-\[var\(--text-subheading-lg\)\] {
     @media (width >= 48rem) {
       color: var(--text-subheading-lg);
+    }
+  }
+  .lg\:text-\[60px\] {
+    @media (width >= 64rem) {
+      font-size: 60px;
+    }
+  }
+  .lg\:text-\[70px\] {
+    @media (width >= 64rem) {
+      font-size: 70px;
+    }
+  }
+  .lg\:text-\[90px\] {
+    @media (width >= 64rem) {
+      font-size: 90px;
+    }
+  }
+  .lg\:text-\[100px\] {
+    @media (width >= 64rem) {
+      font-size: 100px;
     }
   }
 }

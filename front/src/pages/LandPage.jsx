@@ -20,10 +20,9 @@ export default function LandingPage() {
       {/*설명 + 시작 버튼 */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-[var(--spacing-28)]">
         
-        {/* 설명 타이틀: 기존 서브 텍스트에서 메인 헤딩(text-heading)급으로 사이즈 업! */}
-        <h1 className="max-w-5xl mb-[var(--spacing-48)] font-bold tracking-tight text-center text-[var(--text-display)] md:text-[var(--text-display)] leading-[var(--leading-heading)]">
+        <h1 className="w-full mb-[100px] font-bold tracking-tight text-center text-[40px] md:text-[50px] lg:text-[60px] leading-tight">
           복잡한 청약 계산과 다양한 정책의 계산을<br />
-          물 흐르듯 자연스럽게 해결합니다.
+          물 흐르듯 자연스럽게 해결.
         </h1>
 
         {/* 시작하기 버튼 */}
