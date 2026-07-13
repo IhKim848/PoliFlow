@@ -1,20 +1,31 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-export default function LandingPage() {
+export default function LandPage() {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[var(--color-obsidian)] text-[var(--color-paper)] font-[var(--font-roobert)]">
       
       {/*background*/}
-      <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-br from-[var(--color-inkstone)] to-[var(--color-obsidian)] opacity-80" />
-        {/* 비디오 배경은 여기에 추가 (monopo saigon 처럼 물 흐르는 듯한 느낌) */}
+      <div className="absolute inset-0 z-0 bg-[var(--color-obsidian)]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className = "object-cover w-full h-full opacity-80"
+        >
+          <source src="/assets/fluid-background.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-balck/30" />
       </div>
 
       {/*좌 상단 poliflow 로고 */}
       <div className="absolute z-20 top-[var(--spacing-28)] left-[var(--spacing-28)] md:top-[var(--spacing-40)] md:left-[var(--spacing-40)]">
-        <h2 className="font-bold tracking-tight text-[var(--text-subheading)] md:text-[var(--text-subheading-lg)]">
-          PoliFlow
-        </h2>
+        <Link to ="/">
+          <h2 className="font-bold tracking-tight text-[var(--text-subheading)] md:text-[var(--text-subheading-lg)]">
+            PoliFlow
+          </h2>
+        </Link>
       </div>
 
       {/*설명 + 시작 버튼 */}
