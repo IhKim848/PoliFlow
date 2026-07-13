@@ -29,5 +29,8 @@ Thumbs.db
 .vscode/
 *.swp
 
+# front
 src/index.css
 front/src/index.css
+node_modules/
+build/
