@@ -1,4 +1,4 @@
-import os
+from .prompts import Profile_extract_prompt
 import datetime
 import json
 from google import genai
@@ -27,20 +27,14 @@ class ProfileExtractorAgent:
         except Exception as e:
             raise ValueError("Error: Gemini Key 확인 필요함.")
         
-        self.model_id = 'gemini-3.5-flash'
+        self.model_id = 'gemini-2.5-flash'
 
     def extract_profile(self, user_text: str)->dict:
         # AI에게 역할 부여 및 지시
         today_str = datetime.date.today().strftime("%Y년 %m월 %d일")
-        system_inst = """
-        당신의 역할은 금융 정책 자격 요건을 분석해 금융 정책 계산에 필요한 프로필 데이터를 추출하는 역할을 하는 전문가입니다.
-        오늘은 {today_str} 입니다.
-        만약 사용자가 "96년생", "올해 서른", "작년에 가입" 과 같이 상대적인 시간이나 출생 연도를 말하면,
-        반드시 위의 오늘 날짜를 기준으로 하여 정확한 '현재 만 나이' 나 '기간(연수)'을 수학적으로 계산하여 기록해주세요.
-        사용자의 입력을 분석하여 제공된 스키마에 맞게 빈칸을 채워주세요.
-        """
+        system_inst = Profile_extract_prompt.format(today_str = today_str)
 
-        full_prompt = f"{system_inst}\n\n 오늘 날짜: {today_str}\n\n 사용자 입력: {user_text}"
+        full_prompt = f"{system_inst}\n\n 사용자 입력: {user_text}"
         try:
             response = self.client.models.generate_content(
                 model = self.model_id,

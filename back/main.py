@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from src.ai.agent import ProfileExtractorAgent
 from dotenv import load_dotenv
-
 from src.ai.agent import ProfileExtractorAgent
 from src.module.cy import CheongyakPolicy
 
