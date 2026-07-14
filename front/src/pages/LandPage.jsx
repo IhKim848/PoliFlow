@@ -14,7 +14,7 @@ export default function LandPage() {
           playsInline
           className = "object-cover w-full h-full opacity-80"
         >
-          <source src="/assets/fluid-background.mp4" type="video/mp4" />
+          <source src="/assets/fluid_background.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-balck/30" />
       </div>
