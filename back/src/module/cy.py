@@ -16,6 +16,19 @@ class CheongyakPolicy(basePolicy):
         
         super().__init__(policy_rule=rules)
 
+    def _refine_profile(self, profile: Dict[str, Any])->Dict[str, Any]:
+        """ai 추출한 프로필 데이터 중 None 값을 각 타입에 맞는 기본값으로 정규화함."""
+        return {
+            "age" : profile.get("age") or 0,
+            "location" : profile.get("location") or "",
+            "martial_status" : profile.get("martial_status") or "미혼",
+            "annual_income" : profile.get("annual_income") or 0,
+            "homeless_year" : profile.get("homeless_year") or 0,
+            "has_house_in_family" : False if profile.get("has_house_in_family") is None else profile.get("has_house_in_family"),
+            "subscription_years" : profile.get("subscription_years") or 0,
+            "dependents_count" : profile.get("dependents_count") or 0
+        }
+
     def _calculate_linear_score(self, category_key: str, unit: int)->int:
         rule = self.rules[category_key]
         unit_count = max(0, min(unit, rule["max_unit_limit"]))
@@ -23,18 +36,19 @@ class CheongyakPolicy(basePolicy):
         return min(calculated_score, rule["max_score"])
     
     def calculate(self, user_profile: Dict[str, Any])->Dict[str, Any]:
+        re_user_profile = self._refine_profile(user_profile)
         homeless_score = 0
-        if not user_profile.get("has_house_in_family", False):
+        if not re_user_profile.get("has_house_in_family", False):
             homeless_score = self._calculate_linear_score(
-                "homeless_period", user_profile.get("homeless_years", 0)
+                "homeless_period", re_user_profile.get("homeless_years", 0)
             )
 
         dependents_score = self._calculate_linear_score(
-            "dependents", user_profile.get("dependents_count", 0)
+            "dependents", re_user_profile.get("dependents_count", 0)
         )
 
         subscription_score = self._calculate_linear_score(
-            "subscription_period", user_profile.get("subscription_years", 0)
+            "subscription_period", re_user_profile.get("subscription_years", 0)
         )
 
         return {
@@ -48,12 +62,13 @@ class CheongyakPolicy(basePolicy):
         }
     
     def valid_eligibility(self, user_profile: Dict[str, Any]) -> Dict[str, Any]:
+        re_user_profile = self._refine_profile(user_profile)
         is_eligible = True
         reasons = []
 
         min_age = self.rules.get("qualification", {}).get("min_age", 19)
         
-        user_age = user_profile.get("age", 0)
+        user_age = re_user_profile.get("age", 0)
         if user_age < min_age:
             is_eligible = False
             reasons.append(f"만 {min_age}세 이상만 청약이 가능합니다. (현재 {user_age}세)")
