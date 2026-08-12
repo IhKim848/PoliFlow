@@ -44,16 +44,17 @@ export default function CalculatorPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-8">
       
-      <div className='absolute top-8 left-8 md:top-10 md:left-10 z-20'>
+      <div className="fixed top-8 left-8 md:top-10 md:left-10 z-20">
         <Link to="/">
-          <h2 className="font-bold tracking-tight text-3xl md:text-4xl text-blue-600 hover:text-blue-700 transition-colors">
+          <h2 className="font-bold tracking-tight text-xl md:text-xl text-blue-600 hover:text-blue-700 transition-colors">
             PoliFlow
           </h2>
         </Link>
       </div>
 
-      <div className = "w-full max-w-3xl mt-16 md:mt-0">
-        {tabs.map((tab) => (
+      <div className = "w-full max-w-2xl mt-16 md:mt-0">
+        <div className="flex justify-center overflow-x-auto gap-1 w-full">
+          {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -67,13 +68,10 @@ export default function CalculatorPage() {
             </button>
           ))}
       </div>
-
-{/* 탭 내용 영역 */}
-        <div className="bg-white p-6 md:p-10 rounded-b-2xl rounded-tr-2xl shadow-xl w-full border-t-0 border border-gray-100">
+      <div className="bg-white p-6 md:p-10 rounded-b-2xl rounded-tr-2xl shadow-xl w-full border-t-0 border border-gray-100">
           
           {activeTab === '청약' ? (
             <>
-              {/* 기존 청약 계산기 UI */}
               <h1 className="text-3xl font-bold mb-2 text-center text-blue-600">AI 청약 계산기</h1>
               <p className="text-sm md:text-base text-gray-500 text-center mb-8">상황을 이야기하듯 편하게 작성해주세요. AI가 알아서 분석해 드립니다!</p>
               
@@ -113,7 +111,6 @@ export default function CalculatorPage() {
                     </h3>
                     
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {/* 프로필 결과 항목들 (기존과 동일) */}
                       <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                         <span className="text-gray-500 text-xs mb-1">만 나이</span>
                         <span className="font-semibold text-gray-800">{result.profile.age || 0}세</span>
@@ -175,7 +172,6 @@ export default function CalculatorPage() {
               )}
             </>
           ) : (
-            /* 청약 이외의 탭을 눌렀을 때 표시되는 빈 화면 */
             <div className="flex flex-col items-center justify-center py-20 text-gray-500">
               <span className="text-5xl mb-4">🚧</span>
               <h2 className="text-2xl font-bold mb-2">{activeTab} 계산기</h2>
@@ -185,5 +181,6 @@ export default function CalculatorPage() {
           
         </div>
       </div>
+    </div>
   );
 }
