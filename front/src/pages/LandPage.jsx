@@ -22,7 +22,7 @@ export default function LandPage() {
       {/*좌 상단 poliflow 로고 */}
       <div className="absolute z-20 top-[var(--spacing-28)] left-[var(--spacing-28)] md:top-[var(--spacing-40)] md:left-[var(--spacing-40)]">
         <Link to ="/">
-          <h2 className="font-bold tracking-tight text-lg md:text-lg lg:text-lg text-white-600 hover:text-gray-700 transition-colors">
+          <h2 style={{fontSize: '24px'}} className="font-bold tracking-tight text-white-600 hover:text-gray-700 transition-colors">
             PoliFlow
           </h2>
         </Link>

@@ -44,7 +44,7 @@ export default function CalculatorPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-8">
       
-      <div className="fixed top-8 left-8 md:top-10 md:left-10 z-20">
+      <div className="fixed top-8 left-8 md:top-10 md:left-10 z-50">
         <Link to="/">
           <h2 className="font-bold tracking-tight text-xl md:text-xl text-blue-600 hover:text-blue-700 transition-colors">
             PoliFlow
