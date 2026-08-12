@@ -48,12 +48,14 @@ export default function CalculatorPage() {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             placeholder="예시: 나는 서울에 사는 96년생이야. 현재 미혼이고 무주택 3년차야. 연봉은 5천만원 정도고 청약통장은 2년 됐어. 부양가족은 없고, 세대원 중에 집을 가진 사람도 없어."
-            className="w-full p-4 text-[16px] border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-32"
+            style={{fontSize: '16px'}}
+            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-32"
           />
           <button 
             type="submit" 
             disabled={isLoading}
-            className={`py-4 text-[20px] rounded-xl font-bold text-white transition-all ${
+            style={{fontSize: '20px'}}
+            className={`py-4 rounded-xl font-bold text-white transition-all ${
               isLoading ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 hover:shadow-lg'
             }`}
           >
