@@ -42,8 +42,8 @@ export default function CalculatorPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-8">
-      
+    <>
+
       <div className="fixed top-8 left-8 md:top-10 md:left-10 z-50">
         <Link to="/">
           <h2 className="font-bold tracking-tight text-xl md:text-xl text-blue-600 hover:text-blue-700 transition-colors">
@@ -52,6 +52,7 @@ export default function CalculatorPage() {
         </Link>
       </div>
 
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-8">
       <div className = "w-full max-w-2xl mt-16 md:mt-0">
         <div className="flex justify-center overflow-x-auto gap-1 w-full">
           {tabs.map((tab) => (
@@ -182,5 +183,6 @@ export default function CalculatorPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
