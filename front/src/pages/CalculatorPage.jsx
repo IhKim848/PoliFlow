@@ -40,7 +40,7 @@ export default function CalculatorPage() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-8">
       <div className="bg-white p-6 md:p-10 rounded-2xl shadow-xl w-full max-w-3xl">
         <h1 className="text-3xl font-bold mb-2 text-center text-blue-600">AI 청약 계산기</h1>
-        <p className="text-gray-500 text-center mb-8">상황을 이야기하듯 편하게 작성해주세요. AI가 알아서 분석해 드립니다!</p>
+        <p className="text-sm md:text-base text-gray-500 text-center mb-8">상황을 이야기하듯 편하게 작성해주세요. AI가 알아서 분석해 드립니다!</p>
         
         {/* 자연어 입력 폼 */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -48,12 +48,12 @@ export default function CalculatorPage() {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             placeholder="예시: 나는 서울에 사는 96년생이야. 현재 미혼이고 무주택 3년차야. 연봉은 5천만원 정도고 청약통장은 2년 됐어. 부양가족은 없고, 세대원 중에 집을 가진 사람도 없어."
-            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-32"
+            className="w-full p-4 text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-32"
           />
           <button 
             type="submit" 
             disabled={isLoading}
-            className={`py-4 rounded-xl font-bold text-white transition-all ${
+            className={`py-4 text-lg rounded-xl font-bold text-white transition-all ${
               isLoading ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 hover:shadow-lg'
             }`}
           >
