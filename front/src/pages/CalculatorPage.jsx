@@ -131,15 +131,15 @@ export default function CalculatorPage() {
 
                 {!result.eligibilty.is_eligible ? (
                   <div className="p-5 bg-red-50 border border-red-200 text-red-700 rounded-xl">
-                    <h3 className="font-bold mb-2 flex items-center gap-2">
+                    <h3 style={{ fontSize: '20px' }} className="font-bold mb-2 flex items-center gap-2">
                       <span>❌</span> 청약 신청 불가
                     </h3>
                     <p className="text-sm">{result.eligibilty.reasons.join(', ')}</p>
                   </div>
                 ) : (
                   <div className="p-8 bg-blue-50 border border-blue-200 rounded-xl text-center shadow-sm">
-                    <h3 className="text-xl font-bold text-blue-800 mb-2">청약 신청 가능!</h3>
-                    <div className="text-5xl font-extrabold text-blue-600 mb-6 drop-shadow-sm">
+                    <h3 className="font-bold text-blue-800 mb-2">청약 신청 가능!</h3>
+                    <div style={{ fontSize: '48px' }} className="font-extrabold text-blue-600 mb-6 drop-shadow-sm">
                       총 {result.score.total_score}점
                     </div>
                     <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-blue-800 bg-white inline-flex p-3 rounded-full shadow-sm">
