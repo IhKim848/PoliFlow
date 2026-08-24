@@ -91,7 +91,7 @@ export default function CalculatorPage() {
                     <span>🤖</span> AI가 추출한 나의 프로필
                   </h3>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-base">
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">만 나이</span>
                       <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">{result.profile.age || 0}세</span>
