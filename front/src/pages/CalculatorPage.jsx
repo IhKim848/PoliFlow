@@ -39,14 +39,16 @@ export default function CalculatorPage() {
 
   return (
     <>
+      {/* 좌측 상단 로고 */}
       <div className="fixed top-8 left-8 md:top-10 md:left-10 z-50">
         <Link to="/">
-          <h2 className="font-bold tracking-tight text-xl md:text-xl text-blue-600 hover:text-blue-700 transition-colors">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-blue-600 hover:text-blue-700 transition-colors">
             PoliFlow
           </h2>
         </Link>
       </div>
 
+      {/* 중앙 정렬 메인 컨테이너 */}
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-8">
         
         <div className="w-full max-w-3xl mt-16 md:mt-0">
@@ -61,14 +63,12 @@ export default function CalculatorPage() {
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 placeholder="예시: 나는 서울에 사는 96년생이야. 현재 미혼이고 무주택 3년차야. 연봉은 5천만원 정도고 청약통장은 2년 됐어. 부양가족은 없고, 세대원 중에 집을 가진 사람도 없어."
-                style={{ fontSize: '16px' }}
-                className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-32"
+                className="text-base w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-32"
               />
               <button 
                 type="submit" 
                 disabled={isLoading}
-                style={{ fontSize: '20px' }}
-                className={`py-4 rounded-xl font-bold text-white transition-all ${
+                className={`text-xl py-4 rounded-xl font-bold text-white transition-all ${
                   isLoading ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 hover:shadow-lg'
                 }`}
               >
@@ -77,7 +77,7 @@ export default function CalculatorPage() {
             </form>
 
             {error && (
-              <div className="mt-6 p-4 bg-red-50 text-red-600 rounded-xl font-medium text-center">
+              <div className="mt-6 p-4 bg-red-50 text-red-600 rounded-xl font-medium text-center text-base">
                 🚨 {error}
               </div>
             )}
@@ -87,59 +87,59 @@ export default function CalculatorPage() {
                 <hr className="border-gray-200" />
                 
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                  <h3 className="style={{ fontSize: '20px' }} font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                     <span>🤖</span> AI가 추출한 나의 프로필
                   </h3>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-base">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
-                      <span className="text-gray-500 text-xs mb-1">만 나이</span>
-                      <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">{result.profile.age || 0}세</span>
+                      <span className="text-sm text-gray-500 mb-1">만 나이</span>
+                      <span className="text-base font-semibold text-gray-800">{result.profile.age || 0}세</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
-                      <span className="text-gray-500 text-xs mb-1">거주 지역</span>
-                      <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">{result.profile.location || '알 수 없음'}</span>
+                      <span className="text-sm text-gray-500 mb-1">거주 지역</span>
+                      <span className="text-base font-semibold text-gray-800">{result.profile.location || '알 수 없음'}</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
-                      <span className="text-gray-500 text-xs mb-1">혼인 여부</span>
-                      <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">{result.profile.martial_status || '미혼'}</span>
+                      <span className="text-sm text-gray-500 mb-1">혼인 여부</span>
+                      <span className="text-base font-semibold text-gray-800">{result.profile.martial_status || '미혼'}</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
-                      <span className="text-gray-500 text-xs mb-1">연소득</span>
-                      <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">
+                      <span className="text-sm text-gray-500 mb-1">연소득</span>
+                      <span className="text-base font-semibold text-gray-800">
                         {result.profile.annual_income ? `${result.profile.annual_income.toLocaleString()}원` : '0원'}
                       </span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
-                      <span className="text-gray-500 text-xs mb-1">무주택 기간</span>
-                      <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">{result.profile.homeless_year || 0}년</span>
+                      <span className="text-sm text-gray-500 mb-1">무주택 기간</span>
+                      <span className="text-base font-semibold text-gray-800">{result.profile.homeless_year || 0}년</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
-                      <span className="text-gray-500 text-xs mb-1">유주택 세대원</span>
-                      <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">{result.profile.has_house_in_family ? '있음' : '없음'}</span>
+                      <span className="text-sm text-gray-500 mb-1">유주택 세대원</span>
+                      <span className="text-base font-semibold text-gray-800">{result.profile.has_house_in_family ? '있음' : '없음'}</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
-                      <span className="text-gray-500 text-xs mb-1">청약통장 가입</span>
-                      <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">{result.profile.subscription_years || 0}년</span>
+                      <span className="text-sm text-gray-500 mb-1">청약통장 가입</span>
+                      <span className="text-base font-semibold text-gray-800">{result.profile.subscription_years || 0}년</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
-                      <span className="text-gray-500 text-xs mb-1">부양가족 수</span>
-                      <span className="style={{ fontSize: '16px' }} font-semibold text-gray-800">{result.profile.dependents_count || 0}명</span>
+                      <span className="text-sm text-gray-500 mb-1">부양가족 수</span>
+                      <span className="text-base font-semibold text-gray-800">{result.profile.dependents_count || 0}명</span>
                     </div>
                   </div>
                 </div>
 
                 {!result.eligibilty.is_eligible ? (
                   <div className="p-5 bg-red-50 border border-red-200 text-red-700 rounded-xl">
-                    <h3 style={{ fontSize: '20px' }} className="font-bold mb-2 flex items-center gap-2">
+                    <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
                       <span>❌</span> 청약 신청 불가
                     </h3>
-                    <p className="text-sm">{result.eligibilty.reasons.join(', ')}</p>
+                    <p className="text-base">{result.eligibilty.reasons.join(', ')}</p>
                   </div>
                 ) : (
                   <div className="p-8 bg-blue-50 border border-blue-200 rounded-xl text-center shadow-sm">
-                    <h3 className="font-bold text-blue-800 mb-2">청약 신청 가능!</h3>
-                    <div style={{ fontSize: '48px' }} className="font-extrabold text-blue-600 mb-6 drop-shadow-sm">
+                    <h3 className="text-xl font-bold text-blue-800 mb-2">청약 신청 가능!</h3>
+                    <div className="text-4xl md:text-5xl font-extrabold text-blue-600 mb-6 drop-shadow-sm">
                       총 {result.score.total_score}점
                     </div>
                     <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-blue-800 bg-white inline-flex p-3 rounded-full shadow-sm">
