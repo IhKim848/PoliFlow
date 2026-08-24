@@ -87,44 +87,44 @@ export default function CalculatorPage() {
                 <hr className="border-gray-200" />
                 
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                  <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <h3 className="text-[20px] font-bold text-gray-800 mb-4 flex items-center gap-2">
                     <span>🤖</span> AI가 추출한 나의 프로필
                   </h3>
                   
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">만 나이</span>
-                      <span className="font-semibold text-gray-800">{result.profile.age || 0}세</span>
+                      <span className="text-[16px] font-semibold text-gray-800">{result.profile.age || 0}세</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">거주 지역</span>
-                      <span className="font-semibold text-gray-800">{result.profile.location || '알 수 없음'}</span>
+                      <span className="text-[16px] font-semibold text-gray-800">{result.profile.location || '알 수 없음'}</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">혼인 여부</span>
-                      <span className="font-semibold text-gray-800">{result.profile.martial_status || '미혼'}</span>
+                      <span className="text-[16px] font-semibold text-gray-800">{result.profile.martial_status || '미혼'}</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">연소득</span>
-                      <span className="font-semibold text-gray-800">
+                      <span className="text-[16px] font-semibold text-gray-800">
                         {result.profile.annual_income ? `${result.profile.annual_income.toLocaleString()}원` : '0원'}
                       </span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">무주택 기간</span>
-                      <span className="font-semibold text-gray-800">{result.profile.homeless_year || 0}년</span>
+                      <span className="text-[16px] font-semibold text-gray-800">{result.profile.homeless_year || 0}년</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">유주택 세대원</span>
-                      <span className="font-semibold text-gray-800">{result.profile.has_house_in_family ? '있음' : '없음'}</span>
+                      <span className="text-[16px] font-semibold text-gray-800">{result.profile.has_house_in_family ? '있음' : '없음'}</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">청약통장 가입</span>
-                      <span className="font-semibold text-gray-800">{result.profile.subscription_years || 0}년</span>
+                      <span className="text-[16px] font-semibold text-gray-800">{result.profile.subscription_years || 0}년</span>
                     </div>
                     <div className="flex flex-col bg-white p-3 rounded-lg shadow-sm">
                       <span className="text-gray-500 text-xs mb-1">부양가족 수</span>
-                      <span className="font-semibold text-gray-800">{result.profile.dependents_count || 0}명</span>
+                      <span className="text-[16px] font-semibold text-gray-800">{result.profile.dependents_count || 0}명</span>
                     </div>
                   </div>
                 </div>
