@@ -1,6 +1,6 @@
 # PoliFlow 
 
-![PoliFlow 메인 화면](<img width="1943" height="1577" alt="image" src="https://github.com/user-attachments/assets/e1f27dd2-db69-4c1b-9057-b7fcf68dee82" />)
+![PoliFlow 메인 화면](<img width="1943" height="1577" alt="스크린샷 2026-08-24 134843" src="https://github.com/user-attachments/assets/42486432-e8a7-4052-8bb0-128b2f7eef83" />)
 
 ## 프로젝트 소개 (About the Project)
 * 청약 점수를 계산하는 계산기는 많습니다.
